@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>24点</title>
+</head>
+
+<body>
+    <div>
+        数字1：
+        <input type="number" id="num1" />
+        <br> 数字2：
+        <input type="number" id="num2" />
+        <br> 数字3：
+        <input type="number" id="num3" />
+        <br> 数字4：
+        <input type="number" id="num4" />
+        <br>
+        <button onclick="calc()">计算</button>
+        <br> 结果：
+        <span id="result"></span>
+    </div>
+    <script src="index.js"></script>
+    <script>
+    function calc() {
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        var num3 = document.getElementById("num3").value;
+        var num4 = document.getElementById("num4").value;
+        if (num1 && num2 && num3 && num4) {
+            var result = app.calc(parseInt(num1), parseInt(num2), parseInt(num3), parseInt(num4));
+            if (result && result.length) {
+                document.getElementById("result").innerHTML = "";
+                for (var i = 0; i < result.length; i++) {
+                    document.getElementById("result").innerHTML += result[i] + "<br>";
+                }
+            } else {
+                document.getElementById("result").innerHTML = "无法计算";
+            }
+        } else {
+            alert("请输入需要计算的数字");
+        }
+    }
+    </script>
+</body>
+
+</html>
